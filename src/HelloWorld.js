@@ -1,11 +1,28 @@
 import React from "react";
+import {setTechnology} from './actions';
+import {store} from './store';
 
-const HelloWorld = ({ tech }) => {
+
+const set_technology=(event)=>{
+  // console.log(this.target.name);
+  store.dispatch(setTechnology('arg'));
+}
+
+
+const HelloWorld=(props) =>{
+
   return (
     <div className="hello-world">
-      Hello World <span className="hello-world__tech">{tech}!</span>
+      Hello World <span className="hello-world__tech">{props.tech}</span>
+      <div className='button'>
+<button className="btn elm" name='Elm'  onClick={set_technology()}>Elm</button>
+<button className="btn react" name='React' onClick={set_technology()}>React</button>
+<button className="btn redux" name='Redux' onClick={set_technology()}>Redux</button>
+      </div>
     </div>
-  );
+  )
 };
+
+
 
 export default HelloWorld;
